@@ -1,0 +1,192 @@
+#root {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --card-bg: #ffffff;
+  
+  --primary: #3b82f6;
+  --green: #10b981;
+  --red: #ef4444;
+  --gray: #64748b;
+  --gray-light: #e2e8f0;
+  
+  --text-main: #1e293b;
+  --text-muted: #94a3b8;
+}
+
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+/* ===== WRAPPER & CARD ===== */
+.app-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.counter-card {
+  background: var(--card-bg);
+  width: 100%;
+  max-width: 400px;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.badge {
+  background: var(--gray-light);
+  color: var(--gray);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ===== DISPLAY & PROGRESS ===== */
+.display-section {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.counter-value {
+  font-size: 88px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-main);
+  font-variant-numeric: tabular-nums; /* Keeps numbers from shifting widths */
+  transition: transform 0.2s ease;
+}
+
+.progress-bar-container {
+  height: 8px;
+  background: var(--gray-light);
+  border-radius: 4px;
+  margin-top: 25px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 4px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== CONTROLS ===== */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 65px;
+  font-size: 32px;
+  border-radius: 18px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-add { background: var(--green); }
+.btn-remove { background: var(--red); }
+.btn-reset { 
+  background: var(--gray);
+  width: 60px; /* Make reset slightly smaller to emphasize add/remove */
+  height: 60px;
+  font-size: 28px;
+  align-self: center;
+}
+
+/* Hover & Active States */
+.btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.92);
+}
+
+/* Disabled State */
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ===== STATUS MESSAGE ===== */
+.status-message {
+  text-align: center;
+  height: 20px; /* Fixed height prevents layout jumping */
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .counter-card {
+    padding: 30px 20px;
+  }
+  
+  .counter-value {
+    font-size: 72px;
+  }
+  
+  .btn {
+    width: 55px;
+    height: 55px;
+    font-size: 28px;
+  }
+  
+  .btn-reset {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+}
